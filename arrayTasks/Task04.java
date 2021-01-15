@@ -14,14 +14,20 @@ public class Task04 {
         int n = Integer.parseInt(scanner.nextLine());
 
         for (int i = 0; i < n; i++) {
-            int number = array[0];
-            System.arraycopy(array, 1, array, 0, array.length - 1);
-
-            array[array.length - 1] = number;
+            shift(array);
         }
 
         for (int i : array) {
             System.out.print(i + " ");
         }
+    }
+
+    private static void shift(int[] array) {
+        int temp = array[0];
+
+        for (int i = 0; i <array.length - 1; i++) {
+            array[i] = array[i + 1];
+        }
+        array[array.length - 1] = temp;
     }
 }
